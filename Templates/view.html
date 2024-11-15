@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Letter</title>
+    <style>
+        .container {
+            height:120vh;
+            margin-top: 200px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .two {
+            padding:15px;
+        }
+        .three {
+            padding:15px;
+        }
+
+        .formContent {
+            width: 51vw;
+            height: 110vh;
+            background-color: #2e353b;
+            border-radius: 10px;
+            margin: 0;
+        }
+        .label {
+            color: #fff;
+            font-size: 20px;
+            font-family: sans-serif;
+            margin-right: 25px;
+        }
+        .one {
+            margin-top: 50px;
+            height: 70px;
+            border-radius: 10px;
+            width: 50vw;
+            padding:15px;
+            display:flex;
+        }
+        .content {
+            height: 70px;
+            width: 40vw;
+            background-color: #fff;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: sans-serif;
+            color:#2e353b;
+        }
+        .reasonContent {
+            width: 48vw;
+            height: 60vh;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-left: 15px;
+            padding: 8px;
+            font-family: sans-serif;
+            color:#2e353b;
+        }
+        .dateContent {
+            background-color: #fff;
+            width: 100px;
+            height: 30px;
+            padding: 8px;
+            border-radius: 10px;
+        }
+        .three div {
+            display: flex;
+        }
+        #mR {
+            margin-bottom: 14px;
+            margin-top: 20px;
+        }
+        .four {
+            width: 50vw;
+            height: 50px;
+            display: flex;
+            justify-content: end; 
+        }
+        .bM {
+            margin-right: 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    {{sid}}
+    <div class="container">
+        <form class="formContent" method="POST" action="">
+            <input type="hidden" name="CSRFToken" value="OWY4NmQwODE4ODRjN2Q2NTlhMmZlYWEwYzU1YWQwMTVhM2JmNGYxYjJiMGI4MjJjZDE1ZDZMGYwMGEwOA==">
+            <div class="one">
+                <span class="label">Subject: </span>
+                <div class="content">
+                    <p>{{sub[0]}}</p>
+                </div>
+            </div>
+            <div class="two">
+                <span class="label">
+                    Reason:
+                </span>
+                <div class="reasonContent">
+                        <span>{{res[0]}}</span>
+                </div>
+            </div>
+            <div class="three">
+                <div id="mR">
+                    <span class="label"> Date From:</span>
+                    <div class="dateContent">{{dF}}</div>
+                </div>
+                <div>
+                    <span class="label">Date To:</span>
+                    <div class="dateContent">{{dTo}}</div>
+                </div>
+            </div>
+            <div class="four">
+                <div class="bM">
+                    {{form.decline(class="btn btn-danger")}}
+                </div>
+                <div class="bM">
+                    {{form.approve(class="btn btn-success")}}
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</html>

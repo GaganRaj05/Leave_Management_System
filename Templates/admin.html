@@ -1,0 +1,231 @@
+{%extends "layout3.html"%}
+{%block styling%}
+<style>
+    .thtwo {
+        background-color: #e4e5e7;
+        display: flex;
+        justify-content: space-around;
+        height: 25vh;
+    }
+    .ss {
+        height: 150px;
+        width: 290px;
+        background-color:#2e353b;
+        border-radius: 2%;
+        margin-top: 20px;
+        padding: 20px;
+    }
+    .hh {
+        display: flex;
+        justify-content: space-between;
+    }
+    .hh p {
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 500;
+    }
+   
+    .num {
+        text-align: center;
+        font-size: 40px;
+        color: #ffffff;
+    }
+    .ththree {
+        height: 95vh;
+        width: 100%;
+        background-color:#e4e5e7;
+        display: flex;
+        justify-content: center;
+        align-self: start;
+    }
+    .One {
+        height: 90vh;
+        width: 1242px;
+        background-color: #e4e5e7;
+        margin-top:30px ;
+        padding: 10px;
+    }
+    .three {
+        display: flex;
+        flex-direction: column;
+    }
+    #t1 {
+        background-color: #e4e5e7;
+        height: 50px;
+        width: 100%;
+        border: 2px solid #f7fafb;
+    }
+    .t {
+        height: 70px;
+        width: 100%;
+        background-color: #ffffff;
+        font-size: 12px;
+        border: 3px solid #f5f7f9;
+        padding: 5px;
+    }
+    .PU {
+        font-size: 20px;
+        color: #030303;
+        margin: 0;
+    }
+    .pi {
+        color:#c9cdd0
+    }
+    .it {
+        display: flex;
+        justify-content: space-between;
+    }
+    .noLettersFound {
+        text-align:center;
+    }
+    .temp {
+        display: flex;
+    }
+    .TEMP1 {
+        margin-left: 25px;
+    }
+    .TEMP2 {
+        font-size: 25px;
+    }
+    table {
+        width: 90%;
+    }
+    tr {
+        width: 90%;
+    }
+    th {
+        height: 50px;
+        width: 15%;
+        border: 3px solid black;
+        text-align: center;
+    }
+    td {
+        height: 50px;
+        width: 15%;
+        border: 3px solid black;
+    }
+    
+</style>
+{%endblock%}
+{%block content%}
+<div class="s2">
+    <div class="two">
+        <div class = "tone">
+            <div class="head">
+                <img class = "icons"src="https://i.ibb.co/XCX0Zvh/wired-lineal-1808-skateboarding.gif" alt="wired-lineal-1808-skateboarding" >
+                <p>Dashboard</p>
+            </div>
+            <div class="lH">
+                <span>Add</span>
+            </div>
+            <div class="btns">
+                <button class="btn1" >
+                    <a style="text-decoration: none;" href="{{url_for('addStudent')}}">Student</a>
+                </button>
+                <button class="btn1">
+                    <a style="text-decoration: none;" href="{{url_for('addStaff')}}">Staff</a>
+                </button>
+            </div>
+            <div class="lH">
+                <span>View</span>
+            </div>
+            <div class="btns">
+                <button class="btn1">
+                    <a style="text-decoration: none;" href="{{url_for('viewSTD')}}">Student Details</a>
+                </button>
+                <button class="btn1">
+                    <a style="text-decoration: none;" href="{{url_for('viewSD')}}">Staff Details</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="three">
+        <div class="thone">
+            <img class="icons" src="https://s9.gifyu.com/images/SF9NQ.gif" alt="system regular 41 home" border="0" >
+            <span>Home</span>
+        </div>
+        <div class="thtwo">
+            <div class="ss" >
+                <div class="hh">
+                    <p>Total Letters Recieved</p>
+                    <img class="icons" src="https://i.ibb.co/thkLRSC/system-regular-31-check.gif" alt="system-regular-31-check" border="0">
+                </div>
+                <p class="num">
+                    {{sL[0]}}
+                </p>
+            </div>
+            <div class="ss" id="b">
+                <div class="hh">
+                    <p>Total Students</p>
+                    <img class="icons" src="https://i.ibb.co/YDMHc3S/system-regular-18-autorenew.gif" alt="system-regular-18-autorenew" border="0">
+                    
+                </div>
+                <p class="num">
+                    {{stCount[0]}}
+                </p>
+            </div>
+            
+            <div class="ss" id="r">
+                <div class="hh">
+                    <p> Total Staff </p>
+                    <img  class = "icons" src="https://i.ibb.co/RSs83kF/system-regular-159-trending-down.gif" alt="system-regular-159-trending-down" border="0">
+                </div>
+                <p class="num">
+                    {{tCount[0]}}
+                </p>
+            </div>
+        </div>
+        <div class="ththree">
+            <div class="One">
+                <h3>Letter's Approved So Far</h3>
+                <div>
+                    <div id ="t1">
+                        <p>Users</p>
+                    </div>
+                    <table >
+                        <tr>
+                            <th>Application-Id</th>
+                            <th>Teacher's-Id</th>
+                            <th>Name</th>
+                            <th>Reg-No</th>
+                            <th>Date-From</th>
+                            <th>Date-To</th>
+                            
+                        </tr>
+                        {%if data%}
+                            {% for dt in data%}
+                                <tr>
+                                    <td>{{dt[5]}}</td>
+                                    <td>{{dt[0]}}</td>
+                                    <td>{{dt[2]}}</td>
+                                    <td>{{dt[1]}}</td>
+                                    <td>{{dt[3]}}</td>
+                                    <td>{{dt[4]}}</td>
+                                </tr>
+                            {% endfor%}
+                        {%endif%}
+                    </table>
+                
+            </div>
+        </div>
+{%endblock%}
+{%block namei%}
+Admin
+{%endblock%}
+{%block status%}
+Admin
+{%endblock%}
+{%block dynam%}
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var totalHeight = 0;
+        var tDivs = document.querySelectorAll('.t');
+        tDivs.forEach(function(div) {
+            totalHeight += div.offsetHeight;
+        });
+
+        var oneContainer = document.querySelector('.One');
+        oneContainer.style.height = totalHeight + 'px';
+    });
+</script>
+{%endblock%}

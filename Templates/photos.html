@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDM-Photo-Gallery</title>
+    <style>
+        body {
+            margin:0;
+            width: 100%;
+        }
+        .title {
+            margin-left:100px ;
+            margin-top: 150px;
+            width: 700px;
+            height: 60px;
+            border-bottom: 5px solid goldenrod;
+            border-right: 5px solid goldenrod;
+            font-size: 50px;
+            font-weight: 600;
+            font-family: sans-serif;
+            animation: slide-right 3.4s ease forwards;
+            opacity: 0;
+
+        }
+        
+        .small {
+            width: 450px;
+            height: 300px;
+            background-color: aqua;
+            margin: 10px;
+        }
+        .small img {
+            width: 450px;
+            height: 300px;
+        }
+        .medium {
+            width: 450px;
+            height: 450px;
+            background-color: aqua;
+            margin: 10px;
+        }
+        .medium img {
+            width: 450px;
+            height: 450px;
+        }
+        .large {
+            width: 450px;
+            height: 700px;
+            background-color: aqua;
+            margin: 10px;
+        }
+        .large img {
+            width: 450px;
+            height: 700px;
+        }
+        .col  {
+            margin-top: 100px;
+            width: 100%;
+            height: 100vh;
+
+        }
+        .imageContainer {
+            display: flex;
+            justify-content:center;
+            animation: slide-up 3.5s ease forwards;
+            opacity: 0;
+        }
+        
+        @keyframes slide-up {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slide-right {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <p>SDM PHOTO GALLERY</p>
+    </div>
+    <div>
+        <div class="imageContainer">
+                <div class="col">
+                    <div class="small ig"><img src="{{url_for('static',filename='images/one.jpg')}}" alt=""> </div>
+                    <div class="medium ig"><img src="{{url_for('static',filename='images/four.jpg')}}" alt=""></div>
+                    <div class="medium ig"><img src="{{url_for('static',filename='images/seven.jpg')}}" alt=""></div>
+                
+                </div>
+                <div class="col">
+                    <div class="medium ig"><img src="{{url_for('static',filename='images/two.jpg')}}" alt=""></div>
+                    <div class="medium ig"><img src="{{url_for('static',filename='images/five.jpg')}}" alt=""></div>
+                    <div class="medium ig"><img src="{{url_for('static',filename='images/eight.jpg')}}" alt=""></div>
+
+                </div>
+                <div class="col">
+                    <div class="small ig"><img src="{{url_for('static',filename='images/three.jpg')}}" alt=""></div>
+                    <div class="medium ig"><img src="{{url_for('static',filename='images/five.jpg')}}" alt=""></div>
+                    <div class="small ig"><img src="{{url_for('static',filename='images/nine.jpg')}}" alt=""></div>
+                    
+                </div>
+        </div>
+    </div>
+    
+</body>
+</html>

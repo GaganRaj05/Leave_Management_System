@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Dashboard</title>
+    <style>
+        
+        .one {
+            height: 50px;
+            border-top: 2px solid black;
+            border-left: 2px solid black;
+            border-bottom:5px solid #f7f8f9 ;
+            
+        }
+        #cm {
+            color: #8f99a4;
+            font-size: 20px;
+            margin-right: 20px;
+        }
+        .two {
+            height:130vh;
+            width: 16vw;
+            background-color: #2e353b;
+        }
+        #cn {
+            color: #42c085;
+            font-size: 25px;
+            font-weight: 700;
+            font-family: sans-serif;
+            margin: 5px 900px 5px 35px;
+            
+        }
+        .tone {
+            height: 40px;
+            width: 16vw;
+            padding: 5px;
+            color: #ffffff;
+            font-weight: 200;
+        }
+        .icons {
+            height: 25px;
+            width: 25px;
+        }
+        .tone {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            flex-direction:column;
+        }
+        .s2 {
+            display: flex;
+        }
+        .thone {
+            height: 40px;
+            width: 1273px;
+            border-bottom: 2px solid #caced2;
+        }
+        .head p {
+            color: #ffffff;
+            font-size: 20px;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        .tone  button{
+            margin-top: 6px;
+            background-color: #2e353b;
+            text-decoration: none;
+            width: 100%;
+            height:40px;
+            border: 0;
+        }
+        .head {
+            display: flex;
+            justify-content: start;
+            width: 100%;
+        }
+        .lH {
+            display: flex;
+            justify-content: start;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .lH span {
+            margin-left: 10px;
+        }
+        .lH img {
+            margin-left: 8px;
+        }
+        .btns {
+            width: 16vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        .tone button:hover {
+            background-color: #384349;
+            color: #ffffff;          
+        }
+        .btn1 a {
+            color: #ffffff;
+            font-family: sans-serif;
+            margin-left:15px;
+        }
+        #p1 {
+            margin-left: 32px;
+        }
+        .btn1 {
+            text-align:start;
+            margin-left: 2px;
+        }
+        .lH {
+            font-weight: 600;
+        }
+        .btn a {
+            color: #f7f8f9;
+            text-decoration: none !important;
+        }
+        .btn {
+            margin-top: 0;
+        }
+    </style>
+    {%block styling%}
+    {%endblock%}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="fone">
+        <div class="one">
+            <div class="tit">
+                <span id="cn">SDM'S {%block status%}{%endblock%}</span>
+                <span id = "cm"> Good Morning, {%block namei%}{%endblock%}</span>
+                <button class="btn btn-dark"><a href="{{url_for('logout')}}">Logout</a></button>
+            </div>
+        </div>
+        {%with messages = get_flashed_messages(with_categories = true)%}
+            {%for category,message in messages%}
+                <div class="alert alert-{{category}}">
+                    {{message}}
+                </div>
+            {%endfor%}
+        {%endwith%}
+                {%block content%}
+                {%endblock%}
+            </div>
+        </div>
+    
+    </div>
+    {%block dynam%}
+    {%endblock%}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+{% extends "layout3.html"%}
+{%block namei%}
+    {{name}}
+{%endblock%}
+{%block styling%}
+    <style>
+        .thtwo {
+            background-color: #e4e5e7;
+            display: flex;
+            justify-content: space-around;
+            height: 25vh;
+        }
+        .ss {
+            height: 150px;
+            width: 290px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 2%;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .hh {
+            display: flex;
+            justify-content: space-between;
+        }
+        .hh p {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 500;
+        }
+        #g {
+            background-color:#00c26c;
+        }
+        #b {
+            background-color: #35c4e2;
+        }
+        #r {
+            background-color: #ff6065;
+        }
+        #y {
+            background-color:#ffbe00 ;
+            
+        }
+        .num {
+            text-align: center;
+            font-size: 40px;
+            color: #ffffff;
+        }
+        .ththree {
+            height: 95vh;
+            width: 100%;
+            background-color:#e4e5e7;
+            display: flex;
+            justify-content: center;
+            align-self: start;
+        }
+        .One {
+            height: 90vh;
+            width: 1242px;
+            background-color: #ffffff;
+            margin-top:30px ;
+            padding: 10px;
+        }
+        .three {
+            display: flex;
+            flex-direction: column;
+        }
+        #t1 {
+            background-color: #e4e5e7;
+            height: 30px;
+            width: 100%;
+            border: 2px solid #f7fafb;
+        }
+        .t {
+            height: 70px;
+            width: 100%;
+            background-color: #ffffff;
+            font-size: 12px;
+            border: 3px solid #f5f7f9;
+            padding: 5px;
+        }
+        .PU {
+            font-size: 20px;
+            color: #030303;
+            margin: 0;
+        }
+        .pi {
+            color:#c9cdd0
+        }
+        .it {
+            display: flex;
+            justify-content: space-between;
+        }
+        .noLettersFound {
+            text-align:center;
+        }
+        .temp {
+            display: flex;
+        }
+        .TEMP1 {
+            margin-left: 25px;
+        }
+        .TEMP2 {
+            font-size: 25px;
+        }
+    </style>
+{%endblock%}
+{%block content%}
+<div class="s2">
+    <div class="two">
+        <div class = "tone">
+            <div class="head">
+                <img class = "icons"src="https://i.ibb.co/XCX0Zvh/wired-lineal-1808-skateboarding.gif" alt="wired-lineal-1808-skateboarding" >
+                <p>Dashboard</p>
+            </div>
+            <div class="lH">
+                <img src="https://i.ibb.co/89wSWrq/system-regular-50-file.gif" alt="system-regular-50-file" border="0">
+                <span>Reports</span>
+            </div>
+            <div class="btns">
+                <button class="btn1" >
+                    <a style="text-decoration: none;" href="{{url_for('approved')}}">Letters Approved</a>
+                </button>
+                <button class="btn1">
+                    <a style="text-decoration: none;" href="{{url_for('declined')}}">Letters Declined</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="three">
+        <div class="thone">
+            <img class="icons" src="https://s9.gifyu.com/images/SF9NQ.gif" alt="system regular 41 home" border="0" >
+            <span>Home</span>
+        </div>
+    <div class="thtwo">
+        <div class="ss" id="g">
+            <div class="hh">
+                <p>Letters Approved</p>
+                <img class="icons" src="https://i.ibb.co/thkLRSC/system-regular-31-check.gif" alt="system-regular-31-check" border="0">
+            </div>
+            <p class="num">
+                {{approved[0]}}
+            </p>
+        </div>
+        <div class="ss" id="b">
+            <div class="hh">
+                <p>Letters Recieved</p>
+                <img class="icons" src="https://i.ibb.co/YDMHc3S/system-regular-18-autorenew.gif" alt="system-regular-18-autorenew" border="0">
+                
+            </div>
+            <p class="num">
+                {{count}}
+            </p>
+        </div>
+        
+        <div class="ss" id="r">
+            <div class="hh">
+                <p>Letter's Declined</p>
+                <img  class = "icons" src="https://i.ibb.co/RSs83kF/system-regular-159-trending-down.gif" alt="system-regular-159-trending-down" border="0">
+            </div>
+            <p class="num">
+                {{declined[0]}}
+            </p>
+        </div>
+    </div>
+    <div class="ththree">
+        <div class="One">
+            <h3>Letter's Waiting</h3>
+            <div>
+                <div id ="t1">
+                    <p>Users</p>
+                </div>
+               
+                {%if sname%}
+                    {%for i in range(sname|length)%}
+                        <div class="t">
+                            <div class="it">
+                                <div class="temp">
+                                    
+                                    <div class="TEMP2">
+                                        <p>{{appId[i][0]}}</p>
+                                    </div>
+                                    <div class="TEMP1">
+                                        <p class="PU">{{sname[i][0]}}</p>
+                                    <span class="pi">Reg_No: {{sid[i][0]}}</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mr"><a style="color: #e4e5e7;text-decoration:none" href="{{url_for('view', sid=sid[i][0],appId=appId[i][0])}}">View</a></button>
+                            </div>
+                        </div>
+                        
+                    {%endfor%}
+                {%endif%}
+                        <div class="t ">
+                            <P class="PU">No More Letters Recieved</P>
+                        </div>
+            </div>
+            
+        </div>
+    </div>
+{%endblock%}
+{%block dynami%}
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var totalHeight = 0;
+        var tDivs = document.querySelectorAll('.t');
+        tDivs.forEach(function(div) {
+            totalHeight += div.offsetHeight;
+        });
+
+        var oneContainer = document.querySelector('.One');
+        oneContainer.style.height = totalHeight + 'px';
+    });
+</script>
+{%endblock%}
+{%block status%}
+    Lecturer
+{%endblock%}

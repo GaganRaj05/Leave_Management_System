@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+
+    <style>
+            body{
+                background-image:url("https://i0.wp.com/www.sciencenews.org/wp-content/uploads/2023/04/040823_chatgpt_feat.gif");
+                background-repeat:no-repeat;
+                background-size:cover;
+                margin:0;
+            }
+            .front{
+                display:flex;
+                justify-content:start;
+                height:70vh;
+            
+                align-items:end;
+                width:100%;               
+            }
+            .content-section {
+                width: 350px;
+                height: 370px;
+                margin:0 auto;
+                background-color: #151515; 
+                color:#26fbf1;
+                border-radius:1.5%;
+                margin-top:30px;
+                padding:20px;
+                margin-right:1000px;
+                animation:slide-left 3.4s ease forwards;
+                opacity:0;
+            }
+            .temp{
+                margin:0;
+                width:100%;
+                height:30vh;
+                display:flex;
+                justify-content:center;
+                align-items:start;
+                margin-right:1500px;
+            }
+            #error-message{
+                margin: 10px;
+                width:350px;
+            }
+            @keyframes slide-left {
+                0% {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slide-down {
+                0% {
+                    transform: translateY(-100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 100%;
+                }
+                
+            }   
+            .DONTknow {
+                animation:slide-left 3.5s ease forwards;
+                opacity:0;
+            }
+            
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="DONTknow">
+        <h1 style="color:white; font-weight:600;margin:50px 0 0 170px;font-family:sans-serif;font-size:50px;">SDM LEAVE MANAGEMENT SYSTEM</h1>
+    </div>
+    <div class="front">
+    <div class="content-section">
+        <form  method="POST" action="" >
+            {{form.hidden_tag()}}
+            <fieldset class = "mb-4">
+            <div class = "mb-4">
+                <legend>Login</legend>
+            </div>
+       
+            <div class="mb-4">
+                {{form.username.label(class = "form-control-label")}}
+                {%if form.username.errors%}
+                    {{form.username(class = "form-control form-control-lg is-invalid")}}
+                    <div class="invalid" >
+                    {% for error in form.username.errors%}
+                            <span> {{error}} </span>
+                    {%endfor%}
+                    </div>
+                {%else%}
+                    {{form.username(class="form-control form-control-lg")}}
+                {%endif%}
+            </div>
+
+
+            <div class="mb-4">
+                {{form.password.label(class = "form-control-label")}}
+                {%if form.password.errors %}
+                    {{form.password(class="form-control form-control-lg is-invalid")}}
+                    <div class = "invalid">
+                    {% for error in form.password.errors%}
+                            <span>{{error}}</span>
+                    {%endfor%}
+                    </div>
+                {%else%}
+                    {{form.password(class = "form-control form-control-lg")}}
+            
+                {%endif%}
+            </div>
+
+            
+            </fieldset>
+            <div class="mb-4" >
+                {{form.confirm(class = "btn btn-info")}}
+            </div>
+        
+        </form>
+        </div>
+    </div>
+    <div class="temp">
+        <div>
+            {%with messages = get_flashed_messages(with_categories = true)%}
+            {% if messages %}    
+                {%for category, message in messages%}
+                    <div class = "alert alert-{{category}}" id="error-message">
+                    {{message}}
+                    </div>
+                {%endfor%}
+            {%endif%}
+            {%endwith%}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
